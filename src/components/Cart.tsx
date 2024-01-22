@@ -22,12 +22,8 @@ import {
 export default function Cart() {
   //! Dummy data
 
-  // const products: IProduct[] = [];
-  const total = 0;
-
-  //! **
   const dispatch = useAppDispatch();
-  const { products } = useAppSelector((state) => state.cart);
+  const { products, total } = useAppSelector((state) => state.cart);
 
   return (
     <Sheet>
