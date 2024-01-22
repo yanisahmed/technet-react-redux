@@ -13,7 +13,14 @@ export const cardSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: payloadAction<IProduct>) => {
-      state.products.push(action.payload);
+      const existing = state.products.find(
+        (product) => product._id === action.payload._id
+      );
+      if (existing) {
+        existing.quantity = existing.quantity! + 1;
+      } else {
+        state.products.push({ ...action.payload, quantity: 1 });
+      }
     },
   },
 });

@@ -1,10 +1,4 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from './ui/sheet';
+import { useAppSelector } from '@/redux/hooks';
 import {
   HiMinus,
   HiOutlinePlus,
@@ -12,15 +6,23 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
-import { IProduct } from '@/types/globalTypes';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet';
 
 export default function Cart() {
   //! Dummy data
 
-  const products: IProduct[] = [];
+  // const products: IProduct[] = [];
   const total = 0;
 
   //! **
+
+  const { products } = useAppSelector((state) => state.cart);
 
   return (
     <Sheet>
